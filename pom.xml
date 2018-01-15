@@ -65,6 +65,11 @@
     <tag>HEAD</tag>
   </scm>
 
+  <properties>
+    <!-- TEMPORARY -->
+    <jdk.version>1.8.0-152</jdk.version>
+  </properties>
+
   <build>
     <plugins>
       <plugin>

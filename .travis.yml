@@ -6,7 +6,6 @@ sudo: false
 env:
   global:
   - TARGET=install
-  - JDKW=https://raw.githubusercontent.com/vjkoskela/jdk-wrapper/master/jdk-wrapper.sh
   - secure: FimS9ayuLPiHiGDIfXyvx2WCKtiOZ7CS04HOLd5pYvpklKZH2AoRHx1GNlt5XstvQbUNY6s97bLH6qRoMnBtgE5lkG5M0wX9HSYPhTyFuZYiaAJIhRtv3cy9JmX43iIRyuIlWYNnAnil/d4DXNbOibG/Faevefvrw1iIsYMIrsiKoAPm2z8tGUXLbTWEoahnmFIjsyI82kLP3Fz3/Ksv8TJjRMYXd2MXsG4VDcsrsLW+5fLR44FZH/ZpKID6aFOurKlg0to7ilhjOBDaVohjDe0XIoVoF8QFvFgDp8Uqv4/S169LMv2duId5hr8K/SJ0e0w4hqdUYXOpyW062g8EjAf0dWrpbpLyaEq4R24dgxwJFw72f/ZjWZBvrk069LGydH1lTO737quCQUjwNLeEFOIBKT9JwzrQBL/xOkye/KUHM+OU07GVBSmOh1R+fMIP12bxIwi6oUOgn52wlHJCOAYrNKgrE07LKR/A2kISR6ClonHNvxDp/hvXjJwobT6xN95faxemTwrAxxCCOvaLPRCBxyQm3L/uull/01WjKF8VZnNDiRLBm72xfykFJ5H0Z/Z/jmerYNAkauo9ckHnc7QNErijCNABGyDSPwzT7uSgjCQ0KbF+3DI4NkpKIHHET3LDDEILCRE58dzZiSz8/4zef2erlftA68VAiT48bp4=
   - secure: p44q3PrPqbKlneoFLSLUF4pc3WeBnzxtwTQM+ZUeQ6gb57FABtn2w6HkvUbth6w7JPN6Vj7AgrujzfpE/BFycgPX5RPR8Os4JQtWSq6IFNdyFSavSdT1HM+SHLXr2lea2DgYBJJrh3OsOUGKSjJ2emyEoneD3B460mXJJTJpoX2MFusjgQUINP+oAD7G4R9xkX715b3eePhCqJ4sQMR891g/PBnfjY+bZHPjxxw5LJvImrbwVIEKHbRxeAWX9nsEhoekCZg/UDngi0P0HxnXkRmZoSSn1/0SdN3t4FFog+I7q1aI5DDkD0xwEGqNFgoe1pVbBzEvBODPlIUbsI2ApLvxrzsWwFKEqGtt9yy0zvVgO380kqi43wtDd4ujig+2chbB64fM/rRJCYJNEY/Boot7pwuMSg+i3O0AJIIceIlIDO5hjIKJIztHufKNiH4Du2jSuIKD5Bj2BV1TCDZlGy49hI0E0tJLmKS2yR4VDkOF6g5JLcog1jEs6BGSzQiNlX9qH1AWC3wrk3HtRWp1J+zCh5Y4q23fkTdhzHlFXGaeGFTzltJngs8NZoI++m0zb+/koDLkkgGpwCge/zC4rtaY9agpmH/zOGNu5cIRnk+BotKhnrplXxBYGLCgHIGlojV3FSxGM572a3sC9gQYfnKgkMfh4+Dhb++Q4KUlVLg=
   - secure: r6zrqWn7z+bOGJBeljlrvd1sZIU0U8fcq5TJWZSvsrCN9JX+gfRBSNKpud/XGweDNVyepvaOVvOuWtpGDy8xt4EfUuOTs+beC42t5H6CTZkNQoiCXYqY4qaDLAULyNvBj68FW4A1Xga5+ZaBSKPUn2rgjCcEPgN3UxZw3nzSiDutiN3/io/n9NICxdx+DK0StO2qKIjCQgda7GkihZ32FrKNw+UYwSEcb4kT4sGLuSIVze9aYOuIoadgXb/Djl39J2yLMGYaKTs/zDkZ/QOx9gohuRzCWbG8dMrwbRMi0spgOqlBmLBm0mWiZeCx+ECmleYCLHgUHXKbKV7valOq4XRpbnDIKaxizbSmBEU6fzIuK71ljOLQWt6tZlMpvo6azVVyY16coXMedB51zSVdO0bqQyNskGfEpkDdzWDpTvyJoNRuWMr+TouzNt/lCFbUrrvsABbkaWuw/AePQG8A5eHl02EDfPN4AUWlgIHltZk2gaFaV6i5Bp7xdUiaQ/cavs2ZAtiTDHCFqIL21CoOktO/YmSpCjOGh2mBkyVniZKk4a+SCtHeCVEyFczPZX6aZPhMo9F5UKvPhW6wJ9FUQYT3Vk08oXmPeCoRSxNQxElm8GCRQawr4oFm10BdtFDWYOUDcIBT0yDiMVBXFVV8gqRmjpAKscMR9gBdLQPGQ7k=
@@ -15,4 +14,4 @@ before_script:
 - gpg --import ism.key
 - if [ \( -n "${TRAVIS_TAG}" \) -a  "${TRAVIS_PULL_REQUEST}" = "false" ]; then export TARGET="deploy -P release --settings settings.xml"; fi;
 script:
-- curl -s ${JDKW} | bash /dev/stdin ./mvnw clean ${TARGET} -U
+- ./jdk-wrapper.sh ./mvnw clean ${TARGET} -U

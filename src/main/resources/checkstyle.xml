@@ -85,6 +85,12 @@
   <!-- See http://checkstyle.sf.net/config_whitespace.html -->
   <module name="FileTabCharacter"/>
 
+  <!-- CUSTOMIZATION: Check that static imports are not used for anything other than testing libraries. -->
+  <module name="RegexpSingleline">
+      <property name="format" value='^import static (?!org\.junit|org\.hamcrest|org\.mockito|com\.github\.tomakehurst\.wiremock)'/>
+      <property name="message" value="Only use static member imports for testing libraries."/>
+  </module>
+
   <!-- Miscellaneous other checks.                   -->
   <!-- See http://checkstyle.sf.net/config_misc.html -->
   <module name="RegexpSingleline">
@@ -202,11 +208,6 @@
       <property name="option" value="bottom"/>
       <property name="sortStaticImportsAlphabetically" value="true"/>
       <property name="tokens" value="STATIC_IMPORT, IMPORT"/>
-    </module>
-    <!-- CUSTOMIZATION: Check that static imports are not used for anything other than testing libraries. -->
-    <module name="RegexpSingleline">
-        <property name="format" value='^import static (?!org\.junit|org\.hamcrest|org\.mockito|com\.github\.tomakehurst\.wiremock)'/>
-        <property name="message" value="Only use static member imports for testing libraries."/>
     </module>
     <!-- CUSTOMIZATION: Avoid static imports. -->
     <module name="AvoidStaticImport">

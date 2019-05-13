@@ -143,6 +143,11 @@
     <property name="message" value="Do not specify the class field explicitly."/>
   </module>
 
+  <!-- CUSTOMIZATION: Require blank line between end of Javadoc description and annotations -->
+  <module name="RegexpMultiline">
+    <property name="format" value="[ ]*\/\*\*\n(([ ]*\*.*\n))+([ ]*\*[ ]*[^@ \n].*\n)([ ]*\*[ ]*[@].*\n)+[ ]*\*\/">
+  </module>
+
   <module name="TreeWalker">
     <!-- Turn checkstyle ON and OFF for a specified code block -->
     <module name="SuppressionCommentFilter">
@@ -373,6 +378,40 @@
       <property name="limitedTokens" value="EXPR"/>
       <property name="minimumNumber" value="1"/>
     </module>
+
+    <!-- CUSTOMIZATION: Only one top-level interface, class or enum per file. -->
+    <module name="OneTopLevelClass"/>
+
+    <!-- CUSTOMIZATION: Enforce Java programming language declaration order. -->
+    <module name="DeclarationOrder"/>
+
+    <!-- CUSTOMIZATION: Type and method annotations must be on preceding lines. -->
+    <module name="AnnotationLocation">
+      <property name="id" value="AnnotationLocationMostCases"/>
+      <property name="allowSamelineSingleParameterlessAnnotation" value="false"/>
+      <property name="tokens"
+          value="CLASS_DEF, INTERFACE_DEF, ENUM_DEF, METHOD_DEF, CTOR_DEF"/>
+    </module>
+
+    <!-- CUSTOMIZATION: Require trailing comma unless there is a trailing brace on the same line. -->
+    <module name="ArrayTrailingComma"/>
+
+    <!-- CUSTOMIZATION: Strict ordering and valid HTML for Javadoc annotations. -->
+    <module name="AtclauseOrder">
+      <property name="violateExecutionOnNonTightHtml" value="true"/>
+    </module>
+
+    <!-- CUSTOMIZATION: Enforce non-empty Javadoc annotations. -->
+    <module name="NonEmptyAtclauseDescription">
+      <property name="violateExecutionOnNonTightHtml" value="true"/>
+    </module>
+
+    <!-- CUSTOMIZATION: String literal equality should have the literal on the left. -->
+    <module name="EqualsAvoidNull"/>
+
+    <!-- CUSTOMIZATION: Disallow package annotations except in the package-info.java file. -->
+    <module name="PackageAnnotation"/>
+
   </module>
 
 </module>

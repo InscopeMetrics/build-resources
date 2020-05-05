@@ -116,8 +116,14 @@
 
   <!-- Checks that <code> tags are not used -->
   <module name="RegexpSingleline">
-    <property name="format" value="((//)|(\*)).*&lt;code&gt;.*&lt;/code&gt;"/>
-    <property name="message" value='Use {&lt;at&gt;code ...} or {&lt;at&gt;link ...} instead of &lt;code&gt;...&lt;/code&gt;"'/>
+    <property name="format" value="(?:(?:\/\/)|(?:\*)).*&lt;code&gt;.*&lt;\/code&gt;"/>
+    <property name="message" value='Use "&apos;{&apos;@code ...&apos;}&apos;" or "&apos;{&apos;@link ...&apos;}&apos;" instead of "&lt;code&gt;...&lt;/code&gt;"'/>
+  </module>
+
+  <!-- Checks that /* package private */ is not used -->
+  <module name="RegexpSingleline">
+    <property name="format" value="\/\*[\s]*package[\s]+private[\s]*\*\/"/>
+    <property name="message" value='Omit the explicit package private scope comment.'/>
   </module>
 
   <!-- Forbidden imports -->
@@ -159,6 +165,13 @@
   <module name="RegexpSingleline">
     <property name="format" value='\.put\("[_]?class", this\.getClass\(\)'/>
     <property name="message" value="Do not specify the class field explicitly."/>
+  </module>
+
+  <!-- Checks for Line Size Violations.               -->
+  <!-- See http://checkstyle.sf.net/config_sizes.html -->
+  <module name="LineLength">
+    <!-- CUSTOMIZATION: Sun recommends a maximum of 80 characters per line. Google enforces either 80 or 100. This increases the limit to 140. -->
+      <property name="max" value="140"/>
   </module>
 
   <module name="TreeWalker">
@@ -235,11 +248,6 @@
     </module>
 
     <!-- Checks for Size Violations.                    -->
-    <!-- See http://checkstyle.sf.net/config_sizes.html -->
-    <module name="LineLength">
-      <!-- CUSTOMIZATION: Sun recommends a maximum of 80 characters per line. Google enforces either 80 or 100. This increases the limit to 140. -->
-      <property name="max" value="140"/>
-    </module>
     <module name="MethodLength"/>
     <module name="ParameterNumber"/>
     <!-- CUSTOMIZATION: Accept only one outer type per file. -->
@@ -356,6 +364,10 @@
       <!-- CUSTOMIZATION: Allow protected methods which are non-final, mutable or not annotated. -->
       <property name="protectedAllowed" value="true"/>
     </module>
+    <!-- CUSTOMIZATION: Check that declarations are in order -->
+    <module name="DeclarationOrder"/>
+    <!-- CUSTOMIZATION: Check that inner types are last -->
+    <module name="InnerTypeLast"/>
 
     <!-- Miscellaneous other checks.                   -->
     <!-- See http://checkstyle.sf.net/config_misc.html -->

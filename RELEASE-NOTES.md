@@ -1,7 +1,11 @@
 Inscope Metrics Build Resources
 ===============================
 
-2.0.4 - TBD
+2.0.5 - TBD
+------------------------
+* TBD
+
+2.0.4 - May 5, 2020
 ------------------------
 * Inner types should be last.
 * Declaration order; static members, non-static members, constructors, method.

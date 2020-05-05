@@ -5,8 +5,8 @@ Build Resources
     <img src="https://img.shields.io/hexpm/l/plug.svg"
          alt="License: Apache 2">
 </a>
-<a href="https://travis-ci.org/InscopeMetrics/build-resources/">
-    <img src="https://travis-ci.org/InscopeMetrics/build-resources.png?branch=master"
+<a href="https://travis-ci.com/InscopeMetrics/build-resources/">
+    <img src="https://travis-ci.com/InscopeMetrics/build-resources.svg?branch=master"
          alt="Travis Build">
 </a>
 <a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.inscopemetrics.build%22%20a%3A%22build-resources%22">

@@ -1,9 +1,14 @@
 Inscope Metrics Build Resources
 ===============================
 
-2.0.5 - TBD
+2.1.1 - TBD
 ------------------------
 * TBD
+
+2.1.0 - August 2, 2020
+------------------------
+* Included docker-entrypoint.sh to allow runtime specification of run-as user.
+* Fixed bug in app assembler Unix launch script to pass through JAVA_OPTS.
 
 2.0.4 - May 5, 2020
 ------------------------

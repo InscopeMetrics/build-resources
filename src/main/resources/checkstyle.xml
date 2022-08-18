@@ -186,7 +186,7 @@
     <!-- See http://checkstyle.sf.net/config_javadoc.html -->
     <module name="JavadocMethod">
       <!-- CUSTOMIZATION: Sun recommends javadoc on all methods. This reduces the requirement to protected or more visible methods -->
-      <property name="scope" value="protected"/>
+      <property name="accessModifiers" value="PROTECTED, PUBLIC"/>
     </module>
     <module name="MissingJavadocMethod">
       <!-- CUSTOMIZATION: Sun recommends javadoc on all methods. This reduces the requirement to protected or more visible methods except standard setters and getters -->

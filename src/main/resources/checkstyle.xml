@@ -204,7 +204,7 @@
     </module>
     <module name="JavadocVariable">
       <!-- CUSTOMIZATION: Sun recommends javadoc on all variables. This reduces the requirement to public or more visible varaibles. -->
-      <property name="accessModifier" value="public"/>
+      <property name="accessModifiers" value="public"/>
     </module>
     <module name="JavadocStyle">
       <!-- CUSTOMIZATION: Sun recommends javadoc on all package-info.java files. Good class level documentation can render this less useful. -->
